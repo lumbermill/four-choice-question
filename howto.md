@@ -60,11 +60,15 @@ Android側の画面も確認して、何か指示やエラーが出ていない�
 
 MainActivity.kt 上で右クリックし「File -> Activity -> Empty Activity」を選択し、QuizActivitiy.ktとactivity_quiz.xmlを作成します。
 
+
 ## ボタンを作る
 
-activity_quiz.xmlを開きます。
+activity_quiz.xmlを編集して、以下のようなレイアウトを作成します。
+Androidの端末は様々な画面サイズのものが存在するため、どの画面で見ても使いやすい配置を心がける必要があります。
+そのため、画面の座標(x,y)や大きさ(width,height)を直接していするのではなく、相対的な指定、例えば、
+画面の端からどのくらい、とか手前のボタンからどのくらい、といった指定を繰り返してボタンや画像を配置することになります。
 
-
+![起動画面](assets/screenshots/studio-01.png)
 
 
 ## 画像を配置する
