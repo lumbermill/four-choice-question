@@ -58,14 +58,13 @@ Android側の画面も確認して、何か指示やエラーが出ていない�
 
 ## 新しい画面を追加する
 
-MainActivity.kt 上で右クリックし「File -> Kotlin File/Class」を選択し、
-QuizActivitiy.ktを作成します。
-
-TODO: QuizActivity.ktに書き足すのは何？
+MainActivity.kt 上で右クリックし「File -> Activity -> Empty Activity」を選択し、QuizActivitiy.ktとactivity_quiz.xmlを作成します。
 
 ## ボタンを作る
 
-TODO: activity_quiz.xmlの作り方？編集の仕方
+activity_quiz.xmlを開きます。
+
+
 
 
 ## 画像を配置する
@@ -85,10 +84,23 @@ https://www.irasutoya.com/
 TODO: drawableに置く必然性はある？res/imagesとか？
 
 
+
 ## クイズのデータを作成する
-
+プログラムの他にデータ（クイズの問題）が必要です。
 TODO: Context.ktの作成
+「File -> New -> Scratch File」メニューから「Kotlin」を選択します。
 
+```
+print("Hello, World.")
+
+var animals = arrayListOf("hedgehog","dog","turkey","cow")
+print(animals)
+print(animals[1])
+
+var points = hashMapOf("taro" to 3, "jiro" to 5)
+print(points)
+print(points["taro"])
+```
 
 ```
 class Context {
