@@ -94,16 +94,53 @@ TODO: drawableに置く必然性はある？res/imagesとか？
 TODO: Context.ktの作成
 「File -> New -> Scratch File」メニューから「Kotlin」を選択します。
 
-```
+```java
 print("Hello, World.")
 
-var animals = arrayListOf("hedgehog","dog","turkey","cow")
+var animals = arrayListOf("hedgehog","dog","turkey")
 print(animals)
 print(animals[1])
+// 存在しない番号はエラーになる
+print(animals[3])
+
+// 追加
+animals.add("cow")
+print(animals)
+
+// 配列を追加する
+var ape = arrayListOf("gorilla", "pongo")
+animals.addAll(ape)
+print(animals)
+
+// 上書き
+animals[2] = "bird"
+print(animals)
+
+// 中身を検索して削除
+animals.remove("dog")
+print(animals)
+
+// インデックスを指定して削除
+animals.removeAt(1)
+print(animals)
 
 var points = hashMapOf("taro" to 3, "jiro" to 5)
 print(points)
 print(points["taro"])
+// 存在しないキーだとnullが返ってくる
+print(points["saburo"])
+
+// 追加
+points["siro"] = 7
+print(points)
+
+// 上書き
+points["jiro"] = 4
+print(points)
+
+// キーを指定して削除
+points.remove("jiro")
+print(points)
 ```
 
 ```
