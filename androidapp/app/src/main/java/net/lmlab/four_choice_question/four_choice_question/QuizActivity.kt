@@ -1,6 +1,7 @@
 package net.lmlab.four_choice_question.four_choice_question
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,12 +12,17 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var overlay:Button
     private var index: Int = 0
     private var score: Int = 0
-    private var correct_answer: String = ""
+    private var correctAnswer: String = ""
     private var questions: ArrayList<ArrayList<String>>? = arrayListOf(arrayListOf(""))
+    private lateinit var soundCorrect:MediaPlayer
+    private lateinit var soundWrong:MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+
+        soundCorrect = MediaPlayer.create(this, R.raw.se_maoudamashii_chime13)
+        soundWrong = MediaPlayer.create(this, R.raw.se_maoudamashii_onepoint33)
 
         val name = intent.getStringExtra("name")
         questions = Context.questions[name]
@@ -43,26 +49,31 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener  {
         val btn4 = findViewById<Button>(R.id.button4)
 
         // データの先頭にあるのが答え -> 画像を表示
-        correct_answer = options[0]
-        val i = resources.getIdentifier(correct_answer, "drawable" , packageName)
+        correctAnswer = options[0]
+        val i = resources.getIdentifier(correctAnswer, "drawable" , packageName)
         imageView.setImageResource(i)
 
         // 選択肢はいつもかき混ぜる
-        options.shuffle()
-        btn1.text = options[0]
-        btn2.text = options[1]
-        btn3.text = options[2]
-        btn4.text = options[3]
+        val shuffled = options.shuffled()
+        btn1.text = shuffled[0]
+        btn2.text = shuffled[1]
+        btn3.text = shuffled[2]
+        btn4.text = shuffled[3]
+
+        //soundCorrect.prepare()
+        //soundCorrect.prepare()
     }
 
     override fun onClick(p0: View?) {
         val answer = (p0 as Button).text as String
         overlay.isEnabled = true
-        if (answer == correct_answer) {
+        if (answer == correctAnswer) {
             overlay.setBackgroundResource(R.drawable.correct)
+            soundCorrect.start()
             score += 1
         } else {
             overlay.setBackgroundResource(R.drawable.wrong)
+            soundWrong.start()
         }
     }
 
