@@ -1,7 +1,8 @@
-package net.lmlab.four_choice_question.four_choice_question
+package net.lmlab.fourChoiceQuestion
 
 class Context {
     companion object {
+
         val questions: HashMap<String, ArrayList<ArrayList<String>>> = hashMapOf(
             "animal" to arrayListOf(
                 arrayListOf("monkey", "money", "monk", "mosquito"),

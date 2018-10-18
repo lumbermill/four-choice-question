@@ -1,4 +1,4 @@
-package net.lmlab.four_choice_question.four_choice_question
+package net.lmlab.fourChoiceQuestion.fourChoiceQuestion
 
 import org.junit.Test
 
