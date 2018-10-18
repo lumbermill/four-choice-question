@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">four-choice-question</string>
     <string name="button">button</string>
+    <string name="back">Back to Title</string>
 </resources>

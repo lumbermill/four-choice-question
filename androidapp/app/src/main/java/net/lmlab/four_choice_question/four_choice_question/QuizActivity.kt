@@ -10,6 +10,7 @@ import android.widget.ImageView
 class QuizActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var overlay:Button
     private var index: Int = 0
+    private var score: Int = 0
     private var correct_answer: String = ""
     private var questions: ArrayList<ArrayList<String>>? = arrayListOf(arrayListOf(""))
 
@@ -25,6 +26,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener  {
         }
         questions?.let {
             index = 0
+            score = 0
             update(it[index])
         }
     }
@@ -55,26 +57,29 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener  {
 
     override fun onClick(p0: View?) {
         val answer = (p0 as Button).text as String
-
         overlay.isEnabled = true
         if (answer == correct_answer) {
             overlay.setBackgroundResource(R.drawable.correct)
+            score += 1
         } else {
             overlay.setBackgroundResource(R.drawable.wrong)
         }
-//        #next.isEnabled = true
-//        judge.alpha = 1f
-
     }
 
     fun onClickOverkay(p0: View?) {
         index += 1
         questions?.let {
             if (index >= it.size) {
-                // TODO: スコア表示画面に？
-                val intent = Intent(this, MainActivity::class.java)
+                // スコア表示画面
+                val intent = Intent(this, ScoreActivity::class.java)
+                if (score == it.size) {
+                    intent.putExtra("score", "perfect")
+                } else {
+                    intent.putExtra("score", "$score / ${it.size}")
+                }
                 startActivity(intent)
             } else {
+                // 次の画面
                 update(it[index])
             }
         }
