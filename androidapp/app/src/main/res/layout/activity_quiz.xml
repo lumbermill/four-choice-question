@@ -56,5 +56,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/correct" android:onClick="onClickOverkay"
             android:layout_width="0dp" android:layout_height="0dp"
-    />
+            app:layout_constraintDimensionRatio="1"/>
 </android.support.constraint.ConstraintLayout>
