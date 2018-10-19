@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 
 // クイズ画面
-class QuizActivity : AppCompatActivity(), View.OnClickListener  {
+class QuizActivity : AppCompatActivity() {
     // 画面全体を覆う透明なボタン
     private lateinit var overlay:Button
     // 現在表示している問題の位置
@@ -86,7 +86,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener  {
     }
 
     // 四択のボタンがタップされた時に呼び出されます
-    override fun onClick(p0: View?) {
+    fun onClick(p0: View?) {
         // ボタンに書かれた(=選択された)答えを取得します
         val answer = (p0 as Button).text as String
         // 正解・不正解を表示します
