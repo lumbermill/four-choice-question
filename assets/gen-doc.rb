@@ -1,25 +1,27 @@
 
+def puts_source(base,f)
+  puts "## "+f
+  puts "```"
+  puts open(base+"/"+f).read
+  puts "```"
+  puts ""
+end
+
 puts "# 四択クイズアプリサンプルコード"
 
 base = "androidapp/app/src/main/java/net/lmlab/fourChoiceQuestion"
 Dir.entries(base).sort.each do |f|
   next unless f.end_with? ".kt"
-  puts "## "+f
-  puts "```"
-  puts open(base+"/"+f).read
-  puts "```"
-  puts ""
+  puts_source(base,f)
 end
 
 base = "androidapp/app/src/main/res/layout"
 Dir.entries(base).sort.each do |f|
   next unless f.end_with? ".xml"
-  puts "## "+f
-  puts "```"
-  puts open(base+"/"+f).read
-  puts "```"
-  puts ""
+  puts_source(base,f)
 end
+
+puts_source("androidapp/app/src/main/res/values","strings.xml")
 
 puts "## その他のリソース"
 base = "androidapp/app/src/main/res/drawable"
