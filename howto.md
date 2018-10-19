@@ -58,7 +58,7 @@ Android側の画面も確認して、何か指示やエラーが出ていない�
 
 ## 新しい画面を追加する
 
-MainActivity.kt 上で右クリックし「File -> Activity -> Empty Activity」を選択し、QuizActivitiy.ktとactivity_quiz.xmlを作成します。
+MainActivity.kt 上で右クリックし「New -> Activity -> Empty Activity」を選択し、QuizActivitiy.ktとactivity_quiz.xmlを作成します。
 
 
 ## ボタンを作る
