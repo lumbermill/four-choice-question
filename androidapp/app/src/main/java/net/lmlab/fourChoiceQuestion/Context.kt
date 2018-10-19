@@ -7,7 +7,8 @@ class Context {
         // 一つの問題は長さが4の配列から成り、表示される絵は常に先頭のものとします（先頭が正解）
         // 問題を複数個集めた配列が一つの問題集となります
         // 問題集のタイトルをキー、問題集本体（=問題の配列）を値としたハッシュ(questions)を定義します
-        val questions: HashMap<String, ArrayList<ArrayList<String>>> = hashMapOf(
+        val questions: HashMap<String, ArrayList<ArrayList<String>>> =
+        hashMapOf(
             "animal" to arrayListOf(
                 arrayListOf("monkey", "money", "monk", "mosquito"),
                 arrayListOf("horse", "bonito", "mouse", "sheep"),

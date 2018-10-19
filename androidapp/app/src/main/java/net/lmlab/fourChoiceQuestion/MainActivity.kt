@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         // Context.ktで定義した問題のタイトルを取得します
         val titles = Context.questions.keys.toTypedArray()
         //
-        listView.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titles)
+        listView.adapter = ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, titles)
         // リストの項目がタップされた際の動作を定義します
         listView.setOnItemClickListener { _, _, i, _ ->
             // タップされた項目のタイトルをクイズ画面に渡して、クイズ画面に遷移します

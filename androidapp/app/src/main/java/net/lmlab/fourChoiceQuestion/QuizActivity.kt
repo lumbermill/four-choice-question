@@ -19,7 +19,8 @@ class QuizActivity : AppCompatActivity() {
     // 現在表示している問題の正解
     private var correctAnswer: String = ""
     // 現在の問題集（=問題の配列）
-    private var questions: ArrayList<ArrayList<String>>? = arrayListOf(arrayListOf(""))
+    private var questions: ArrayList<ArrayList<String>>? = 
+            arrayListOf(arrayListOf(""))
     // 正解の音
     private lateinit var soundCorrect:MediaPlayer
     // 不正解の音
@@ -33,8 +34,10 @@ class QuizActivity : AppCompatActivity() {
         overlay = findViewById(R.id.overlay)
 
         // 正解の時、不正解の時の音を準備します
-        soundCorrect = MediaPlayer.create(this, R.raw.se_maoudamashii_chime13)
-        soundWrong = MediaPlayer.create(this, R.raw.se_maoudamashii_onepoint33)
+        soundCorrect = 
+                MediaPlayer.create(this, R.raw.se_maoudamashii_chime13)
+        soundWrong = 
+                MediaPlayer.create(this, R.raw.se_maoudamashii_onepoint33)
 
         // メイン画面で指定された問題集のタイトルを取得します
         val name = intent.getStringExtra("name")
@@ -43,8 +46,10 @@ class QuizActivity : AppCompatActivity() {
 
         if (questions == null) {
             // 問題が取得できなかったとき
-            // * Context.ktに直接問題が定義されている今回は、ここに到達することはありません
-            //   しかし、外部から問題を読んできて表示するような場合、こうしたエラー処理が大切です
+            // * Context.ktに直接問題が定義されている今回は
+            //   ここに到達することはありません
+            //   しかし、外部から問題を読んできて表示するような場合
+            //   こうしたエラー処理が大切です
             update(arrayListOf("wrong","","",""))
         }
         questions?.let {
@@ -72,7 +77,8 @@ class QuizActivity : AppCompatActivity() {
         // データの先頭にあるのが正解です
         correctAnswer = options[0]
         // 正解と一致する名前の画像を表示します
-        val i = resources.getIdentifier(correctAnswer, "drawable" , packageName)
+        val i = resources.getIdentifier(correctAnswer,
+                                        "drawable" , packageName)
         imageView.setImageResource(i)
 
         // 選択肢はいつもかき混ぜます
