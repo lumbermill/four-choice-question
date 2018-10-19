@@ -1,3 +1,5 @@
+# androidappのソースを収集しmarkdownに整形するスクリプトです
+# このプロジェクトのルートから実行してください
 
 def puts_source(base,f)
   puts "## "+f
